@@ -1,0 +1,48 @@
+# ================================================================= #
+#    Moving Average Crossover Strategy - Dedicated Configuration   #
+# ================================================================= #
+# This file contains all parameters for the MovingAverageCrossoverStrategy,
+# providing complete control over technical analysis and position management.
+
+strategy_name: "MovingAverageCrossoverStrategy"
+
+# --- Technical Analysis Parameters ---
+# Configure the moving average periods for signal generation
+technical:
+  fast_ma_period: 5    # Fast-moving average period (shorter timeframe)
+  slow_ma_period: 8    # Slow-moving average period (longer timeframe)
+
+# --- Position Management Parameters ---
+# Fine-tune risk management and exit conditions
+position_management:
+  stop_loss_pct: 0.02          # 2% stop loss threshold (0.02 = 2%)
+  take_profit_pct: 0.05        # 5% take profit target (0.05 = 5%)
+  max_bars_held: 10            # Maximum time to hold position (bars)
+  leverage: 1.0                # Leverage for futures mode (1x-125x). Default: 1.0x
+
+# --- Feature Toggles ---
+# Enable/disable specific exit condition types for testing
+features:
+  enable_technical_exits: true   # Exit on bearish MA crossover
+  enable_stop_loss: true         # Exit on stop-loss breach
+  enable_take_profit: true       # Exit on take-profit target
+  enable_time_exits: true        # Exit on maximum time held
+
+# --- Strategy Metadata ---
+# Optional metadata for tracking and documentation
+metadata:
+  version: "1.0"
+  description: "Position-aware MA crossover with configurable risk management"
+  risk_profile: "moderate"       # conservative, moderate, aggressive
+  created_date: "2025-09-07"
+  
+# --- Configuration Notes ---
+# Risk Profile Guidelines (modify parameters above to match your preference):
+# - Conservative: stop_loss_pct: 0.01, take_profit_pct: 0.03, max_bars_held: 15
+# - Moderate:     stop_loss_pct: 0.02, take_profit_pct: 0.05, max_bars_held: 20  
+# - Aggressive:   stop_loss_pct: 0.05, take_profit_pct: 0.10, max_bars_held: 50
+#
+# Feature Toggle Examples:
+# - Pure Technical: Only enable_technical_exits: true (all others false)
+# - Risk Management: Only enable_stop_loss and enable_take_profit: true
+# - Time-Limited: Only enable_time_exits: true for position duration testing

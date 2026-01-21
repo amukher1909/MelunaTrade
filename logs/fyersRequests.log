@@ -1,0 +1,4 @@
+{"level":"DEBUG","location":"[get_call:137] fyersModel","message":{"Status Code":401,"API":"/profile"},"timestamp":"2025-07-13 21:02:10,228+0530","service":"FyersAPIRequest"}
+{"level":"DEBUG","location":"[get_call:137] fyersModel","message":{"Status Code":401,"API":"/profile"},"timestamp":"2025-07-13 21:02:27,217+0530","service":"FyersAPIRequest"}
+{"level":"DEBUG","location":"[get_call:137] fyersModel","message":{"Status Code":401,"API":"/profile"},"timestamp":"2025-07-13 21:04:31,159+0530","service":"FyersAPIRequest"}
+{"level":"DEBUG","location":"[get_call:137] fyersModel","message":{"Status Code":200,"API":"/profile"},"timestamp":"2025-07-13 21:12:22,671+0530","service":"FyersAPIRequest"}

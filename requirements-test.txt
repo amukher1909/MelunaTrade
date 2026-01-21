@@ -1,0 +1,45 @@
+# Testing requirements for Meluna dashboard
+
+# Core testing framework
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+pytest-timeout>=2.1.0
+pytest-xdist>=3.0.0  # For parallel test execution
+
+# Web testing with Playwright
+playwright>=1.35.0
+pytest-playwright>=0.4.0
+
+# HTML test reports
+pytest-html>=3.1.0
+
+# Mock and fixtures
+pytest-mock>=3.10.0
+pytest-fixtures>=0.1.0
+
+# Performance testing
+pytest-benchmark>=4.0.0
+memory-profiler>=0.60.0
+
+# Dashboard dependencies (if not already installed)
+dash>=2.10.0
+dash-bootstrap-components>=1.4.0
+plotly>=5.14.0
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Data validation
+pydantic>=1.10.0
+
+# Async utilities
+aiofiles>=23.0.0
+
+# Development utilities
+ipython>=8.0.0
+jupyter>=1.0.0
+
+# Code quality (optional for testing)
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0

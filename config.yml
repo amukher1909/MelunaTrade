@@ -1,0 +1,91 @@
+# ================================================================= #
+#          Project Meluna: Main Configuration File (Phase 1A)       #
+# ================================================================= #
+
+# --- Backtest Settings -------------------------------------------
+backtest_settings:
+  start_date: "2025-10-01"
+  end_date: "2025-10-05"
+  initial_aum: 100000.00 # Starting capital in INR
+
+# --- Data Settings -----------------------------------------------
+# Defines where raw and processed data is stored.
+data_settings:
+  data_directory: "data" # Relative to project root
+  active_vendor: 'binance'
+
+  symbol_list:
+    - "BTCUSDT"
+    - "ETHUSDT"
+
+  binance_settings:
+    interval: '5m'  # Options: 1m, 5m, 15m, 1h, 4h, 1d
+
+  # Data Quality Validation Settings
+  validation:
+    strictness: 'warn'  # 'warn' (log warnings) or 'error' (raise exception)
+    gap_tolerance_multiplier: 1.5  # Multiplier for expected interval (e.g., 1.5 days for daily data)
+
+  instrument_cache_path: 'data/cache/instruments.csv'
+
+
+# --- Fyers API Credentials ---------------------------------------
+fyers_credentials:
+  client_id: "58EU53AO99-100"  # Your Fyers App Client ID
+  secret_key: "1V3PCPFQ99"     # Your Fyers App Secret Key
+  redirect_url: "http://127.0.0.1:5000/login"
+  pin: "9156"                 # Your 4-digit Fyers PIN
+  totp_secret: "YOUR_TOTP_SECRET_KEY_HERE"
+  log_path: "logs/"
+
+# --- ZERODHA CREDENTIALS ---
+zerodha_credentials:
+  api_key: "xdmawj26bvla37y9"
+  api_secret: "nvwslqqfc555w5obxiee9ak6ziu6n86w"
+  redirect_url: "http://127.0.0.1:8080"
+
+  # Note: The access_token is read from local_config.yml
+
+# --- Binance Futures API Credentials ---------------------------------------
+# For authenticated access (higher rate limits), store keys in local_config.yml:
+#   binance_credentials:
+#     api_key: "your_key_here"
+#     api_secret: "your_secret_here"
+#     testnet: true
+# For anonymous access (public data only), no credentials needed
+binance_credentials:
+  testnet: true  # Use testnet for development (set to false for production)
+
+
+# --- Execution Simulation Settings -----------------------------
+execution_settings:
+  commission_bps: 5 # Commission cost in basis points (0.05%)
+  slippage_bps: 2   # Slippage cost in basis points (0.02%)
+
+# --- Strategy Configuration -------------------------------------------
+# Strategy configuration is now handled by dedicated strategy config files.
+# See Strategies/moving_average_crossover_config.yaml for strategy parameters.
+
+# --- Logging Configuration ---------------------------------------
+# This entire block should have no indentation.
+logging:
+  version: 1
+  disable_existing_loggers: false
+  formatters:
+    standard:
+      format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: standard
+      level: INFO
+    file:
+      class: logging.handlers.RotatingFileHandler
+      formatter: standard
+      filename: "results/meluna_backtest.log"
+      maxBytes: 10485760 # 10MB
+      backupCount: 5
+      encoding: utf8
+  root:
+    handlers: [console, file]
+    level: DEBUG

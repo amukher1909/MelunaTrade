@@ -1,0 +1,51 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+/venv/
+
+# IDE and OS-specific files
+.idea/
+.vscode/
+*.DS_Store
+
+# Claude Code
+.claude/
+
+# --- Project Meluna Specific Ignores ---
+
+# Ignore the entire directory for logs and backtest outputs
+/results/
+
+# Ignore the entire directory for downloaded market data
+/data/
+
+# IMPORTANT: Ignore the local config with the sensitive access token
+/local_config.yml
+
+# Environment variables (may contain API keys)
+.env
+
+# Ignore Excel validation outputs (generated test files)
+/tests/technical_analysis/validation_outputs/
+
+/temp_artifact/
+
+# Test artifacts and screenshots
+test_*.py
+debug_*.py
+*_screenshot*.png
+*_screenshots/
+dashboard_*.png
+*.html
+correlation_chart_*.html
+dashboard_page.html
+*debug*.png
+*error*.png
+*final*.png
+playwright_debug.log
+
+# Parquet data files
+*.parquet
